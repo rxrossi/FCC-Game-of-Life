@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+  background: #333;
+  color: #ddd;
+}
+
+button {
+  background: #666;
+  border: 2px outset black;
+  border-radius: 5px;
+  padding: 5px;
+  color: #ddd;
+  margin: 5px;
+}
+
+.header, .footer {
+  margin: 25px;
+}
+
+.board {
+  font-size: 0;
+  display: inline-block;
+}
+
+.row {
+  display: block;
+}
+
+.baby, .dead, .old {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  /*border: 1px solid black;*/
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  /*transition: 0.5s;*/
+}
+
+.dead {
+  background: gray;
+}
+
+.baby {
+  background: #55f;
+}
+
+.old {
+ background: #00d;
+}
