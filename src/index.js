@@ -10,10 +10,6 @@ import './index.css'
 */
 
 //Project Patterns
-/*
-  cells can be: baby, old or dead
-*/
-
 
 // initialConfig
   const initialConfig = {
