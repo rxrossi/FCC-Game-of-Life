@@ -21,6 +21,14 @@ a {
 	color: lightblue;
 }
 
+.green-btn {
+	background: #2b3;
+}
+
+.red-btn {
+	background: #b23;
+}
+
 .header, .footer {
   margin: 25px;
 }

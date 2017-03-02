@@ -136,7 +136,8 @@ import './index.css'
       return (
         <div>
           <div className="header">
-						<button onClick={ () => toggleRunningGenerations() }>
+						<button onClick={ () => toggleRunningGenerations() }
+							className={running ? "red-btn" : "green-btn"}>
 							{running ? "Stop" : "Play" }
 						</button>
             <button onClick={ () => nextGen(numberOfRows,numberOfCols,board) }>Calc next Generation</button>
