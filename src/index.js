@@ -136,12 +136,12 @@ import './index.css'
       return (
         <div>
           <div className="header">
+						<button onClick={ () => toggleRunningGenerations() }>
+							{running ? "Stop" : "Play" }
+						</button>
             <button onClick={ () => nextGen(numberOfRows,numberOfCols,board) }>Calc next Generation</button>
             <button onClick={ () => clearBoard(numberOfRows,numberOfCols) }>Clear the board</button>
             <button onClick={ () => randomizeCellStates(numberOfRows,numberOfCols) }>Randomize the board</button>
-            <button onClick={ () => toggleRunningGenerations() }>
-							{running ? "Stop" : "Play" }
-						</button>
             <p> Generations: {generations} </p>
             <label>Rows: </label>
             <input type="number"
