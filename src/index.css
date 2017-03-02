@@ -42,20 +42,31 @@ a {
   font-size: 12px;
   text-align: center;
   cursor: pointer;
+	border: 1px solid #333;
+	border-radius: 20%;
   /*transition: 0.5s;*/
 }
 
 .dead {
-  background: gray;
+  background: #444;
+}
+.dead:hover {
+	background: #55e;
 }
 
 .baby {
   background: #55f;
 }
+.baby:hover {
+	background: #66f;
+}	
 
 .old {
- background: #00d;
+	background: #00d;
 }
+.old:hover {
+	background: #00e;
+}	
 
 .header input {
 	width: 7%;

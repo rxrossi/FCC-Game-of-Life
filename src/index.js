@@ -188,7 +188,6 @@ import './index.css'
                                         height: (window.innerWidth*0.9) < (window.innerHeight*0.65)
                                         ? (window.innerWidth*0.9/numberOfCols)
                                         : (window.innerHeight * 0.65/numberOfCols),
-                                        borderRadius: 1,
                                         transition: interval/2+'ms'
                                       }}
                                       onClick={ () =>  onCellClick(rowKey, cellKey) }>
