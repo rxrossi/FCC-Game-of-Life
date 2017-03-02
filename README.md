@@ -29,7 +29,8 @@ What you can do:
 ##Work locally:
 Clone and then run the commands
 
-npm install
-npm start
+`npm install`
+
+`npm start`
 
 The app was created using create-react-app, it has unit testing
