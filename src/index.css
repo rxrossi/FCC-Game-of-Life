@@ -11,9 +11,14 @@ button {
   background: #666;
   border: 2px outset black;
   border-radius: 5px;
-  padding: 5px;
+  padding: 8px;
   color: #ddd;
   margin: 5px;
+	cursor: pointer;
+}
+
+a {
+	color: lightblue;
 }
 
 .header, .footer {
@@ -50,4 +55,18 @@ button {
 
 .old {
  background: #00d;
+}
+
+.header input {
+	width: 7%;
+	margin: 2px;
+	text-align: right;
+	background: #444;
+	color: white;
+	border: 0;
+	padding: 3px;
+}
+
+.header label {
+	margin-left: 10px;
 }

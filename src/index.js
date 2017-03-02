@@ -18,7 +18,7 @@ import './index.css'
     boardWidth: 600,
     running: true,
     generations: 0,
-    interval: 400
+    interval: 200
   }
 
 //Functions importing
@@ -54,8 +54,8 @@ import './index.css'
     board: randomizeBoard(generateBoard(numberOfRows,numberOfCols))
   })
 
-  const startRunningGenerations = () => ({
-    type: 'START_RUNNING_GENERATIONS'
+  const toggleRunningGenerations = () => ({
+    type: 'TOGGLE_RUNNING_GENERATIONS'
   });
 
   const stopRunningGenerations = () => ({
@@ -119,8 +119,7 @@ import './index.css'
         nextGen,
         clearBoard,
         randomizeCellStates,
-        startRunningGenerations,
-        stopRunningGenerations,
+        toggleRunningGenerations,
         board,
         numberOfCols,
         numberOfRows,
@@ -128,7 +127,7 @@ import './index.css'
         setRowsAndCols,
         setGenerationsInterval
       } = this.props;
-      const { generations, interval } = this.props.config;
+      const { generations, interval, running } = this.props.config;
 
       let inputNumberOfRows;
       let inputNumberOfCols;
@@ -140,12 +139,11 @@ import './index.css'
             <button onClick={ () => nextGen(numberOfRows,numberOfCols,board) }>Calc next Generation</button>
             <button onClick={ () => clearBoard(numberOfRows,numberOfCols) }>Clear the board</button>
             <button onClick={ () => randomizeCellStates(numberOfRows,numberOfCols) }>Randomize the board</button>
-            <button onClick={ () => startRunningGenerations() }>Play</button>
-            <button onClick={ () => stopRunningGenerations() }>Stop</button>
-            <hr />
-            Generations: {generations}
-            <hr />
-            Number of rows:
+            <button onClick={ () => toggleRunningGenerations() }>
+							{running ? "Stop" : "Play" }
+						</button>
+            <p> Generations: {generations} </p>
+            <label>Rows: </label>
             <input type="number"
               value={numberOfRows}
               min="1"
@@ -153,8 +151,7 @@ import './index.css'
               ref={ node => inputNumberOfRows = node}
               onChange={ () => setRowsAndCols(inputNumberOfRows.value, numberOfCols) }
             />
-            <br />
-            Number of cols:
+            <label>Columns: </label>
             <input type="number"
               value={numberOfCols}
               min="1"
@@ -162,8 +159,7 @@ import './index.css'
               ref={ node => inputNumberOfCols = node}
               onChange={ () => setRowsAndCols(numberOfRows, inputNumberOfCols.value) }
             />
-            <br />
-            Interval between generations:
+            <label>Speed: </label>
             <input
               type="number"
               value={interval}
@@ -207,7 +203,8 @@ import './index.css'
               }
           </div>
           <div className="footer">
-            Clicking a dead cell will turn it into a new cell, clicking on a cell that is alive will kill it
+            <p>Clicking a dead cell will turn it into a new cell, clicking on a cell that is alive will kill it</p>
+						<a href="https://github.com/rxrossi/FCC-Game-of-Life"> Code on Github </a>
           </div>
         </div>
       )
@@ -222,7 +219,7 @@ import './index.css'
   })
   const mapBoardDispatchToProps = {
     nextGen, clearBoard, randomizeCellStates,
-    startRunningGenerations, stopRunningGenerations,
+    toggleRunningGenerations,
     onCellClick, setRowsAndCols, setGenerationsInterval
   }
   Board = connect(mapBoardStateToProps, mapBoardDispatchToProps)(Board);
@@ -265,10 +262,10 @@ import './index.css'
 
   const gameConfig = (state = [], action) => {
     switch (action.type) {
-      case 'START_RUNNING_GENERATIONS':
+      case 'TOGGLE_RUNNING_GENERATIONS':
         return {
           ...state,
-          running: true
+          running: !state.running 
         }
       case 'STOP_RUNNING_GENERATIONS':
         return {
