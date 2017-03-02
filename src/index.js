@@ -58,6 +58,7 @@ import './index.css'
     type: 'TOGGLE_RUNNING_GENERATIONS'
   });
 
+	// eslint-disable-next-line
   const stopRunningGenerations = () => ({
     type: 'STOP_RUNNING_GENERATIONS',
   })
